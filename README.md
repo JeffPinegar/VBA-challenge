@@ -1,81 +1,58 @@
 # VBA-challenge
-Repo for VBA-challenge Due Oct. 6 2022
-# VBA Homework: The VBA of Wall Street
 
-## Background
+Jeff Pinegar
+Jeffpinegar1@gamil.com
++1-717-982-0516
 
-You are well on your way to becoming a programmer and Excel master! In this homework assignment, you will use VBA scripting to analyze generated stock market data. Depending on your comfort level with VBA, you may choose to challenge yourself with a few of the challenge tasks.
+### Readme file for the Wallstreet Challenge
+_____________________________________________
+### Assumptions:
+* The source workbook only contains worksheets with ticker data
+* Each sheet starts in cell A1
+* Each worksheet has these columns, in this order <ticker> <date> <open> <high> <low> <close> <vol>
+* The data starts in cell A2
+* I place all the results in a sperate worksheet named outputs.  The first column of the output table will include the name of the source worksheet.   To see an individual worksheet result the table can be filtered using the filters that are presented.
 
-### Before You Begin
+_____________________________________________
+### NOT Assume in my project:
+* The number of worksheets of data in the source workbook, the only limit is n-1 where is Excel's limit.
+* The worksheets are not in order by ticker or date. I sort each sheet by ticker and date before I process.
+* Each worksheet has an unknown number of rows.  I process down the data till I reach a blank.  There is no risk of a mid table blanks since I sort the table to start.
 
-1. Create a new repository for this project called `VBA-challenge`. **Do not add this homework to an existing repository**.
+_____________________________________________
+### How to run this project
+1.  Open the worksheets containing the macros
+2.  Open the file containing the Data
+3.  Run the macro "Main_Code"
+4.  All the results will be on the first worksheet "Output"
 
-2. Inside the new repository that you just created, add any VBA files that you use for this assignment. These will be the main scripts to run for each analysis.
+### Execution times
+*   Alphabetical_testing.xlsx -- 20 seconds
+*   Multiple_year_stock_data.xlsx -- 15 minutes
 
-### Files
+### output Images
+1.  2018 Results.jpg -- result for 2018
+2.  2019 Results.jpg -- result for 2019
+3.  2020 Results.jpg -- result for 2020
+4.  Greatest Changes per Year.jpg
 
-* [Test Data](Resources/alphabetical_testing.xlsx) - Use this while developing your scripts.
 
-* [Stock Data](Resources/Multiple_year_stock_data.xlsx) - Run your scripts on this data to generate the final homework report.
+____________________________________________
+### Macros contained in the project
+Main_Code.vbs
+    * This is where the project starts, run main_code()
+    * calls to outputsheet()
+    * calls TickerTotal() once for each sheet 
+    * after all the sheets have been processed calls GrtSummary() to identify the tickers with the greats % gain, % loss, and volume
+    * Calls OutputHeadings() to format the output sheet
 
-### Stock Market Analyst
+TickerTotal.vbs 
+    * Once a new ticker is identified, calculate the yearly change, %change, and total volume
+    * When a ticker is totaled call writeTicker() to record results in the output table
 
-![alt=""](Images/stockmarket.jpg)
+WriteTickerOutput.vbs
+    * Once a Ticker is totaled (TickerTotal.vbs) This macro writes the results in the output table.
 
-## Instructions
+Outputsheet.vbs
+    * This file prepares a worksheet for recording the results.
 
-Create a script that loops through all the stocks for one year and outputs the following information:
-
-  * The ticker symbol.
-
-  * Yearly change from opening price at the beginning of a given year to the closing price at the end of that year.
-
-  * The percent change from opening price at the beginning of a given year to the closing price at the end of that year.
-
-  * The total stock volume of the stock.
-
-**Note:** Make sure to use conditional formatting that will highlight positive change in green and negative change in red.
-
-The result should match the following image:
-
-![moderate_solution](Images/moderate_solution.png)
-
-## Bonus
-
-Add functionality to your script to return the stock with the "Greatest % increase", "Greatest % decrease", and "Greatest total volume". The solution should match the following image:
-
-![hard_solution](Images/hard_solution.png)
-
-Make the appropriate adjustments to your VBA script to allow it to run on every worksheet (that is, every year) just by running the VBA script once.
-
-## Other Considerations
-
-* Use the sheet `alphabetical_testing.xlsx` while developing your code. This data set is smaller and will allow you to test faster. Your code should run on this file in less than 3 to 5 minutes.
-
-* Make sure that the script acts the same on every sheet. The joy of VBA is that it takes the tediousness out of repetitive tasks with one click of a button.
-
-* Some assignments, like this one, contain a bonus. It is possible to achieve proficiency for this assignment without completing the bonus. The bonus is an opportunity to further develop your skills and be rewarded extra points for doing so.
-
-## Submission
-
-To submit, please upload the following to GitHub:
-
-  * A screen shot for each year of your results on the multi-year stock data.
-
-  * VBA scripts as separate files.
-
-Be sure to commit regularly to your repository and that it contains a README.md file.
-
-After saving your work, create a shareable link and submit the link to <https://bootcampspot-v2.com/>.
-
-## Rubric
-
-[Unit 2 Rubric - VBA Homework - The VBA of Wall Street](https://docs.google.com/document/d/1OjDM3nyioVQ6nJkqeYlUK7SxQ3WZQvvV3T9MHCbnoWk/edit?usp=sharing)
-
-## References
-
-* Dataset generated by Trilogy Education Services, LLC.
-
-- - -
-
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
