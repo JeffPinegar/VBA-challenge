@@ -4,7 +4,13 @@ Jeff Pinegar
 Jeffpinegar1@gamil.com
 +1-717-982-0516
 
-### Readme file for the Wallstreet Challenge
+# Readme file for the Wallstreet Challenge
+
+## Submission Note
+The maximum file size for my GitHub is 50MB
+The Multi_year_stock_data.xlsb file is 56MB so I could not load it.
+Therefore I split the output sheet out and named it: Wallstreet Results Output.xlsx 
+
 _____________________________________________
 ### Assumptions:
 * The source workbook only contains worksheets with ticker data
@@ -31,28 +37,27 @@ _____________________________________________
 *   Multiple_year_stock_data.xlsx -- 15 minutes
 
 ### output Images
-1.  2018 Results.jpg -- result for 2018
-2.  2019 Results.jpg -- result for 2019
-3.  2020 Results.jpg -- result for 2020
-4.  Greatest Changes per Year.jpg
-
+*  Greatest Changes per Year.jpg
+*  2018 Results.jpg -- result for 2018
+*  2019 Results.jpg -- result for 2019
+*  2020 Results.jpg -- result for 2020
 
 ____________________________________________
-### Macros contained in the project
-Main_Code.vbs
-    * This is where the project starts, run main_code()
-    * calls to outputsheet()
-    * calls TickerTotal() once for each sheet 
-    * after all the sheets have been processed calls GrtSummary() to identify the tickers with the greats % gain, % loss, and volume
-    * Calls OutputHeadings() to format the output sheet
+# Macros contained in the project
+### Main_Code.vbs
+* This is where the project starts, run main_code()
+* calls to outputsheet()
+* calls TickerTotal() once for each sheet 
+* after all the sheets have been processed calls GrtSummary() to identify the tickers with the greats % gain, % loss, and volume
+* Calls OutputHeadings() to format the output sheet
 
-TickerTotal.vbs 
-    * Once a new ticker is identified, calculate the yearly change, %change, and total volume
-    * When a ticker is totaled call writeTicker() to record results in the output table
+### TickerTotal.vbs 
+* Once a new ticker is identified, calculate the yearly change, %change, and total volume
+* When a ticker is totaled call writeTicker() to record results in the output table
 
-WriteTickerOutput.vbs
-    * Once a Ticker is totaled (TickerTotal.vbs) This macro writes the results in the output table.
+### WriteTickerOutput.vbs
+* Once a Ticker is totaled (TickerTotal.vbs) This macro writes the results in the output table.
 
-Outputsheet.vbs
-    * This file prepares a worksheet for recording the results.
+### Outputsheet.vbs
+* This file prepares a worksheet for recording the results.
 
